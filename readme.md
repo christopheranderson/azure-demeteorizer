@@ -11,6 +11,8 @@ open source, community supported tool designed to unpackage meteor apps into a r
 
 NOTE: Windows only! While the CLI may work on Linux/Mac, the native modules Meteor requires must be compiled on a Windows machine for it to deploy successfuly on Azure. There is some investigation to moving this install process to Azure.
 
+Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to manage your node versions.
+
 `npm install christopheranderson/azure-demeteorizer`
 
 *Using GitHub has the install source is temporary until the package reaches "beta"*
@@ -50,3 +52,4 @@ You should now be able to navigate to your site ({sitename}.azurewebsites.net) a
 [azure feedback meteor request]: https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6848937-add-support-for-meteor-on-azure-websites
 [Demeteorizer]: https://github.com/onmodulus/demeteorizer
 [deployment credentials]: https://github.com/projectkudu/kudu/wiki/Deployment-credentials
+[nvm]: https://github.com/coreybutler/nvm-windows
