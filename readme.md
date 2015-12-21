@@ -1,12 +1,6 @@
 # azure-demeteorizer v0.1.0 (Alpha)
 CLI tool for deploying demeteorized [meteor] apps on Azure App Service.
 
-## Why is there a CLI tool for this?
-
-[Meteor][meteor] is a popular JavaScript App Platform. It's something Azure App Service had a lot of requests for on the [Azure feedback site][azure feedback meteor request]. 
-Azure App Serivce doesn't have explicit support for meteor apps, but it does have support for node applications, which is what meteor is built around. [Demeteorizer] is an 
-open source, community supported tool designed to unpackage meteor apps into a regular node app. This CLI tool wraps Demeteorizer and makes the steps to deploy to Azure very simple.
-
 ## Installation
 
 NOTE: Windows only! While the CLI may work on Linux/Mac, the native modules Meteor requires must be compiled on a Windows machine for it to deploy successfuly on Azure. There is some investigation to moving this install process to Azure.
@@ -31,6 +25,13 @@ There are 4 commands needed to deploy to Azure
     - password: password for your site's [deployment credentials].
 
 You should now be able to navigate to your site ({sitename}.azurewebsites.net) and see your application deployed now.
+
+## Why is there a CLI tool for this?
+
+[Meteor][meteor] is a popular JavaScript App Platform. It's something Azure App Service had a lot of requests for on the [Azure feedback site][azure feedback meteor request]. 
+Azure App Serivce doesn't have explicit support for meteor apps, but it does have support for node applications, which is what meteor is built around. [Demeteorizer] is an 
+open source, community supported tool designed to unpackage meteor apps into a regular node app. This CLI tool wraps Demeteorizer and makes the steps to deploy to Azure very simple.
+
 
 ## Future Plans
 
