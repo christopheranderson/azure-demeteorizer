@@ -11,6 +11,15 @@ Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to 
 
 *Using GitHub has the install source is temporary until the package reaches "beta"*
 
+## Prerequisites
+
+1. Install Meteor locally - [Install from Meteor.com][meteor]
+2. Node v0.10.40 32bit - [Use nvm to make node version manage easy][nvm]
+3. Mongo - [MongoDB](https://www.mongodb.com/) OR [Mongo Lab](https://mongolab.com/)(Local MongoDB doesn't work on App Service)
+4. App Service App with following App Settings:
+    * MONGO_URL - (Mongo DB connection string from a MongoDB hosted on Mongo Lab or a VM)
+    * ROOT_URL - {sitename}.azurewebsites.net or your custom domain if you've set that up
+
 ## Deploy to Azure
 
 There are 4 commands needed to deploy to Azure
