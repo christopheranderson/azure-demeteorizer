@@ -44,9 +44,10 @@ program
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
         setLogLevel(options.loglevel, options.nocolor);
-        promise.resolve()
-            .then(function () {
+        promise.resolve(options)
+            .then(function (options) {
                 logger.info('main', 'Build started');
+                return options;
             })
             .then(demeteorizer.run)
             .catch(exitOnError)
@@ -66,9 +67,10 @@ program
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
         setLogLevel(options.loglevel, options.nocolor);
-        promise.resolve()
-            .then(function () {
+        promise.resolve(options)
+            .then(function (options) {
                 logger.info('main', 'Install started');
+                return options;
             })
             .then(installer.run)
             .catch(exitOnError)
@@ -88,9 +90,10 @@ program
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
         setLogLevel(options.loglevel, options.nocolor);
-        promise.resolve()
-            .then(function () {
+        promise.resolve(options)
+            .then(function (options) {
                 logger.info('main', 'Zip started');
+                return options;
             })
             .then(zip.run)
             .catch(exitOnError)
@@ -116,11 +119,12 @@ program
             return exitOnError('You must specify a sitename, username, and password when using the (d)eploy command.');
         }
         setLogLevel(options.loglevel, options.nocolor);
-        promise.resolve()
-            .then(function () {
+        promise.resolve(options)
+            .then(function (options) {
                 logger.info('main', 'Deploy started');
+                return options;
             })
-            .then(deploy.run.bind(undefined, options))
+            .then(deploy.run)
             .catch(exitOnError)
             .then(function () {
                 logger.info('main', 'Deploy completed');
