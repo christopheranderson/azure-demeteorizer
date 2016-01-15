@@ -4,7 +4,7 @@
   "description": "Azure demeteorizer extends the demeteorizer tool to also build and deploy your application to Azure App Service. ",
   "main": "main.js",
   "bin": {
-      "azure-demeteorizer": "./bin/azure-demeteorizer"
+    "azure-demeteorizer": "./bin/azure-demeteorizer"
   },
   "scripts": {
     "test": "mocha"
@@ -17,8 +17,8 @@
     "demeteorizer"
   ],
   "repository": {
-      "type": "git",
-      "url":""
+    "type": "git",
+    "url": ""
   },
   "author": "chrande@microsoft.com",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "demeteorizer": "^3.0.1",
     "npmlog": "^2.0.0",
     "request": "^2.67.0",
+    "semver": "^5.1.0",
     "underscore": "^1.8.3"
   }
 }

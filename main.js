@@ -1,6 +1,7 @@
 
 var logger = require('./lib/logger'),
     utils = require('./lib/utils'),
+    precheck = require('./lib/run-precheck'),
     demeteorizer = require('./lib/run-demeteorizer'),
     installer = require('./lib/run-install'),
     zip = require('./lib/run-zip'),
@@ -41,12 +42,28 @@ program
     .command('build')
     .alias('b')
     .description('Builds a demeteorized bundle')
+    .option('-f --force', 'Advanced: Ignore version errors and run anyway')
     .option('-l --loglevel [loglevel]', 'Set the logging level (silly|verbose|info|warn|error)', /^(silly|verbose|info|warn|error)$/i, 'info')
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
         setLogLevel(options.loglevel, options.nocolor);
-        promise.resolve(options)
-            .then(function (options) {
+        logger.silly('main', options.force);
+        var flow = promise.resolve()
+        if (!options.force) {
+            flow
+                .then(function () {
+                    logger.info('main', 'Precheck running');
+                    return options;
+                })
+                .then(precheck.run)
+                .catch(exitOnError)
+                .then(function () {
+                    logger.info('main', 'Precheck completed');
+                });
+        }
+
+        flow
+            .then(function () {
                 logger.info('main', 'Build started');
                 return options;
             })
@@ -72,7 +89,7 @@ program
         promise.resolve(options)
             .then(function (options) {
                 logger.info('main', 'Install started');
-                if(options.pathToWebConfig) {
+                if (options.pathToWebConfig) {
                     // Create absolute path from relative path
                     options.pathToWebConfig = path.join(process.cwd(), options.pathToWebConfig);
                 }
