@@ -13,12 +13,20 @@ Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to 
 
 ## Prerequisites
 
-1. Install Meteor locally - [Install from Meteor.com][meteor]
+1. Install Meteor locally (>v0.8.1)- [Install from Meteor.com][meteor]
 2. Node v0.10.40 32bit - [Use nvm to make node version manage easy][nvm]
-3. Mongo - [MongoDB](https://www.mongodb.com/) OR [Mongo Lab](https://mongolab.com/)(Local MongoDB doesn't work on App Service)
+3. Mongo accessibly to Azure - i.e. [MongoDB](https://www.mongodb.com/) on a VM or [Mongo Lab](https://mongolab.com/)
 4. App Service App with following App Settings:
     * MONGO_URL - (Mongo DB connection string from a MongoDB hosted on Mongo Lab or a VM)
     * ROOT_URL - {sitename}.azurewebsites.net or your custom domain if you've set that up
+    * DEFAULT_NODE_VERSION - 0.10.40    
+5. Python 2.7 - Required for node-gyp
+6. Microsoft Visual C++ Redistributable (2010 or greater)
+    * It may be required to configure npm to use a newer version of C++ if you don't have 2010 installed.
+
+If you have any issues during the install phase, it's likely that you are either using the wrong node version or don't have the prerequisites installed. Please review the requirements on [node-gyp](https://github.com/nodejs/node-gyp#installation)'s github page for Windows users.
+
+If you have any issues after you've deployed, it's likely your node version is incorrect on the server.
 
 ## Deploy to Azure
 
@@ -35,7 +43,7 @@ There are 4 commands needed to deploy to Azure
 
 You should now be able to navigate to your site ({sitename}.azurewebsites.net) and see your application deployed now.
 
-## Additional options
+## Additional options and tips
 
 ### Custom web.config
 
@@ -44,6 +52,10 @@ There are lots of good reasons to need a custom web.config, for instance,
 or redirecting to your custom domain.
 
 To use a custom web.config, just pass the path during the install phase. Like so: `azure-demeteorizer install -p ./path/to/web.config`
+
+### Add .demeteorized to your .gitignore
+
+If you add `.demeteorized` to your `.gitignore` (if you're using git), you can prevent the tool output from affecting your repository.
 
 ## Why is there a CLI tool for this?
 
