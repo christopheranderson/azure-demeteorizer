@@ -6,7 +6,8 @@ var logger = require('./lib/logger'),
     zip = require('./lib/run-zip'),
     deploy = require('./lib/run-deploy'),
     program = require('commander'),
-    promise = require('bluebird');
+    promise = require('bluebird'),
+    path = require('path');
 
 /*
  * Private Functions
@@ -63,6 +64,7 @@ program
     .command('install')
     .alias('i')
     .description('Installs NPM packages & dependencies for App Service')
+    .option('-p --pathToWebConfig [pathToWebConfig]', 'Provide a relative path to a custom web.config. Otherwise, a default will be used.')
     .option('-l --loglevel [loglevel]', 'Set the logging level (silly|verbose|info|warn|error)', /^(silly|verbose|info|warn|error)$/i, 'info')
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
@@ -70,6 +72,10 @@ program
         promise.resolve(options)
             .then(function (options) {
                 logger.info('main', 'Install started');
+                if(options.pathToWebConfig) {
+                    // Create absolute path from relative path
+                    options.pathToWebConfig = path.join(process.cwd(), options.pathToWebConfig);
+                }
                 return options;
             })
             .then(installer.run)
