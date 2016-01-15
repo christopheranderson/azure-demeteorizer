@@ -1,4 +1,4 @@
-# azure-demeteorizer v0.1.0 (Alpha)
+# azure-demeteorizer v0.2.0 (Alpha)
 CLI tool for deploying demeteorized [meteor] apps on Azure App Service.
 
 ## Installation
