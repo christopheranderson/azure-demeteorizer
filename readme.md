@@ -35,6 +35,16 @@ There are 4 commands needed to deploy to Azure
 
 You should now be able to navigate to your site ({sitename}.azurewebsites.net) and see your application deployed now.
 
+## Additional options
+
+### Custom web.config
+
+There are lots of good reasons to need a custom web.config, for instance, 
+[forcing HTTPS](http://microsoftazurewebsitescheatsheet.info/#force-https) 
+or redirecting to your custom domain.
+
+To use a custom web.config, just pass the path during the install phase. Like so: `azure-demeteorizer install -p ./path/to/web.config`
+
 ## Why is there a CLI tool for this?
 
 [Meteor][meteor] is a popular JavaScript App Platform. It's something Azure App Service had a lot of requests for on the [Azure feedback site][azure feedback meteor request]. 
