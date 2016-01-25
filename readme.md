@@ -45,6 +45,15 @@ You should now be able to navigate to your site ({sitename}.azurewebsites.net) a
 
 ## Additional options and tips
 
+### Deployment fails
+
+A couple of issues may arise while deploying:
+
+1. Credentials aren't working
+ - Go to the Azure Portal and reset your deployment credentials via any Web App. If you're still getting failures, turn local git deployment on and off. If you're still failing, open an issue.
+2. 500 Error during deployment - can't delete `fibers.node`
+ - Fibers is currently locked by the node process. There is currently some work in progress to fix this, but the work around is to stop your site via the Azure Portal before deploying, and starting it again after deploying.
+
 ### Custom web.config
 
 There are lots of good reasons to need a custom web.config, for instance, 
