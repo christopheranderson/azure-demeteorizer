@@ -18,7 +18,7 @@ Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to 
 3. Mongo accessibly to Azure - i.e. [MongoDB](https://www.mongodb.com/) on a VM or [Mongo Lab](https://mongolab.com/)
 4. App Service App with following App Settings:
     * MONGO_URL - (Mongo DB connection string from a MongoDB hosted on Mongo Lab or a VM)
-    * ROOT_URL - {sitename}.azurewebsites.net or your custom domain if you've set that up
+    * ROOT_URL - http://{sitename}.azurewebsites.net or your custom domain if you've set that up
     * WEBSITE_NODE_DEFAULT_VERSION - 0.10.40    
 5. Python 2.7 - Required for node-gyp
 6. Microsoft Visual C++ Redistributable (2010 or greater)
