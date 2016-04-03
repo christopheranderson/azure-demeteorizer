@@ -18,7 +18,7 @@ Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to 
 3. Mongo accessibly to Azure - i.e. [MongoDB](https://www.mongodb.com/) on a VM or [Mongo Lab](https://mongolab.com/)
 4. App Service App with following App Settings:
     * MONGO_URL - (Mongo DB connection string from a MongoDB hosted on Mongo Lab or a VM)
-    * ROOT_URL - {sitename}.azurewebsites.net or your custom domain if you've set that up
+    * ROOT_URL - http://{sitename}.azurewebsites.net or your custom domain if you've set that up
     * WEBSITE_NODE_DEFAULT_VERSION - 0.10.40    
 5. Python 2.7 - Required for node-gyp
 6. Microsoft Visual C++ Redistributable (2010 or greater)
@@ -44,6 +44,15 @@ There are 4 commands needed to deploy to Azure
 You should now be able to navigate to your site ({sitename}.azurewebsites.net) and see your application deployed now.
 
 ## Additional options and tips
+
+### Deployment fails
+
+A couple of issues may arise while deploying:
+
+1. Credentials aren't working
+ - Go to the Azure Portal and reset your deployment credentials via any Web App. If you're still getting failures, turn local git deployment on and off. If you're still failing, open an issue.
+2. 500 Error during deployment - can't delete `fibers.node`
+ - Fibers is currently locked by the node process. There is currently some work in progress to fix this, but the work around is to stop your site via the Azure Portal before deploying, and starting it again after deploying.
 
 ### Custom web.config
 
