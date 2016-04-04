@@ -30,7 +30,7 @@ If you have any issues after you've deployed, it's likely your node version is i
 
 ## Deploy to Azure
 
-There are 4 commands needed to deploy to Azure
+There are 4 commands needed to deploy to Azure. Be sure to stop your site before deploying. You can use a [deployment slot](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) if you want to avoid stoping your production site.
 
 1. After installing the tool, navigate to the directory hosting your meteor app
 2. `azure-demeteorizer build`
@@ -53,6 +53,7 @@ A couple of issues may arise while deploying:
  - Go to the Azure Portal and reset your deployment credentials via any Web App. If you're still getting failures, turn local git deployment on and off. If you're still failing, open an issue.
 2. 500 Error during deployment - can't delete `fibers.node`
  - Fibers is currently locked by the node process. There is currently some work in progress to fix this, but the work around is to stop your site via the Azure Portal before deploying, and starting it again after deploying.
+3. To help address some of the fibers locking issues, we've added the `--clean` option for the deploy command. This will attempt to kill your node process and delete all files on your machine.
 
 ### Custom web.config
 

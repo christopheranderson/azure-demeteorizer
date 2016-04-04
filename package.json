@@ -29,6 +29,7 @@
     "demeteorizer": "^3.0.1",
     "npmlog": "^2.0.0",
     "request": "^2.67.0",
+    "request-promise": "^2.0.0",
     "semver": "^5.1.0",
     "underscore": "^1.8.3"
   }

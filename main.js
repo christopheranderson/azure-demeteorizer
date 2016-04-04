@@ -135,6 +135,7 @@ program
     .option('-s, --siteName [sitename]', 'Name of your App Service App')
     .option('-u, --username [username]', 'Username for Kudu Deployment')
     .option('-p, --password [password]', 'Password for Kudu Deployment')
+    .option('--clean', 'Clean the site before deploying')
     .option('-l --loglevel [loglevel]', 'Set the logging level (silly|verbose|info|warn|error)', /^(silly|verbose|info|warn|error)$/i, 'info')
     .option('--nocolor', 'Disables colors')
     .action(function (options) {
