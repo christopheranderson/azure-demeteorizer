@@ -7,7 +7,7 @@ NOTE: Windows only! While the CLI may work on Linux/Mac, the native modules Mete
 
 Meteor requires node v0.10.40 32bit to work. Check out [nvm] for a good tool to manage your node versions.
 
-`npm install christopheranderson/azure-demeteorizer`
+`npm install -g christopheranderson/azure-demeteorizer`
 
 *Using GitHub has the install source is temporary until the package reaches "beta"*
 
