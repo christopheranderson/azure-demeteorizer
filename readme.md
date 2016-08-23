@@ -1,4 +1,7 @@
 # azure-demeteorizer v0.2.0 (Alpha)
+
+> :tada: Checkout this project for a much simpler option (Meteor 1.4+) - https://github.com/talos-code/meteor-azure
+
 CLI tool for deploying demeteorized [meteor] apps on Azure App Service.
 
 ## Installation
